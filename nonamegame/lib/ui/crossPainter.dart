@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
+import '../main.dart';
+
 class CrossPainter extends CustomPainter {
   final Paint _paint;
   final double _fraction;
@@ -8,7 +10,7 @@ class CrossPainter extends CustomPainter {
   CrossPainter(this._fraction, Color color) :_paint = Paint() {
     _paint
       ..color = color
-      ..strokeWidth =10.0
+      ..strokeWidth = isBig() ? 10.0 : 5.0
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
   }

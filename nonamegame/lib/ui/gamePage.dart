@@ -1,8 +1,13 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nonamegame/engine/engine.dart';
 import 'package:nonamegame/engine/field.dart';
 import 'package:nonamegame/ui/fieldSeparatorWidget.dart';
 import 'package:nonamegame/ui/fieldWidget.dart';
+
+import '../main.dart';
 
 class GamePage extends StatefulWidget {
   final GameEngine _engine;
@@ -64,6 +69,7 @@ class _GamePageState extends State<GamePage> {
     widget._engine.init();
   }
 
+
   @override
   Widget build(BuildContext context) 
     => Scaffold(
@@ -74,16 +80,16 @@ class _GamePageState extends State<GamePage> {
             Row(
               children: [
                 MaterialButton(
-                  height: 70,
+                  height: isBig() ? 70 : 30,
                   color: Colors.blueGrey,
-                  minWidth: 200,
+                  minWidth: isBig() ? 200 : 50,
                   onPressed: _onReplayPressed,
-                  child: Text("Play Again", style: TextStyle(fontSize: 25,),
+                  child: Text("Play Again", style: TextStyle(fontSize: isBig()? 25 : 12,),
                   )
                 ),
                Container(
-                  margin: EdgeInsets.only(top: 20, left: MediaQuery.of(context).size.width /2 - 300),
-                  child: Text(_hintText,style: TextStyle(fontSize: 40),),
+                  margin: EdgeInsets.only(top: 20, left: MediaQuery.of(context).size.width /2 - (isBig() ? 300 : 150)),
+                  child: Text(_hintText,style: TextStyle(fontSize: isBig()?40: 17),),
                 ),
               ],
             ),

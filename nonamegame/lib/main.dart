@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nonamegame/ui/gamePage.dart';
 
@@ -19,3 +22,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
+  bool isBig() => kIsWeb || Platform.isLinux || Platform.isMacOS || Platform.isWindows;

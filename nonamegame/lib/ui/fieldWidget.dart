@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nonamegame/engine/engine.dart';
 import 'package:nonamegame/engine/field.dart';
+import 'package:nonamegame/main.dart';
 import 'package:nonamegame/ui/cellWidget.dart';
 
 class FieldWidget extends StatefulWidget {
@@ -28,7 +29,7 @@ class _FieldState extends State<FieldWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(50),
+      margin: EdgeInsets.all(isBig() ? 50 : 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -44,7 +45,7 @@ class _FieldState extends State<FieldWidget> {
               getSmartCell(3),
           ],
           ),
-          Container(height: 100,),
+          Container(height: isBig()? 100 : 25,),
           Row(
             children: [
               getSmartCell(4),
